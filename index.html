@@ -438,9 +438,7 @@
 
 
 <script>
-    // 每天切换 banner 图.  Switch banner image every day.
-    var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
-    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
+    $('.bg-cover').css('background-image', 'url(/medias/banner/0.jpg)');
 </script>
 
 
@@ -492,6 +490,33 @@
     </div>
 
     
+        
+
+        
+            
+            <div class="carousel-item amber white-text carousel-post bg-cover"
+                 style="background-image: url('/medias/featureimages/9.jpg');">
+                <div class="container">
+                    <div class="row">
+                        <div class="col s10 offset-s1">
+                            <div class="title center-align">测试篇</div>
+                            <div class="description center-align">
+                                
+                                    这里会显示为摘要。
+                                
+                            </div>
+                            <div class="cover-btns">
+                                <a href="/2022/04/05/%E6%B5%8B%E8%AF%95%E7%AF%87/" class="waves-effect waves-light btn"
+                                   target="_blank">
+                                    <i class="icon fa fa-eye fa-fw"></i>阅读更多
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+    
 </div>
 
 <script>
@@ -514,7 +539,7 @@
         coverSlider.carousel({
             duration: Number('120'),
             fullWidth: true,
-            indicators: 'true' === 'true',
+            indicators: 'false' === 'true',
             onCycleTo() {
                 if (!initUserPressedOrDraggedActive) {
                     // console.log('initUserPressedOrDraggedActive')
@@ -526,32 +551,11 @@
 
         let carouselIntervalId;
         
-        // Loop to call the next cover article picture.
-        let autoCarousel = function () {
-            carouselIntervalId = setInterval(function () {
-                coverSlider.carousel('next');
-            }, 5000);
-        };
-        autoCarousel();
-        
 
         function restartPlay() {
             
-            clearInterval(carouselIntervalId);
-            autoCarousel();
-            
         };
 
-        
-        // prev and next cover post.
-        $('#prev-cover').click(function () {
-            coverSlider.carousel('prev');
-            restartPlay();
-        });
-        $('#next-cover').click(function () {
-            coverSlider.carousel('next');
-            restartPlay();
-        });
         
     });
 </script>
@@ -601,7 +605,7 @@
     
     <div class="col s12 m6" >
         
-            <div class="post-card" style="background-image: url('/medias/featureimages/19.jpg')">
+            <div class="post-card" style="background-image: url('/medias/featureimages/7.jpg')">
             
             <div class="post-body">
                 <div class="post-categories">
@@ -630,7 +634,7 @@ Misc金三胖下载解压，直接保存所有图片，看到flag大概是hello 
     
     <div class="col s12 m6" >
         
-            <div class="post-card" style="background-image: url('/medias/featureimages/21.jpg')">
+            <div class="post-card" style="background-image: url('/medias/featureimages/9.jpg')">
             
             <div class="post-body">
                 <div class="post-categories">
@@ -644,13 +648,6 @@ Misc金三胖下载解压，直接保存所有图片，看到flag大概是hello 
                 <p class="post-description">
                     
                         这里会显示为摘要。
-
-
-这里会显示为正文。
-这样加标题段落与段落之间要有一个空行。
-这样方便读者阅读。
-引用
-这样写引用，直接在句子前面加英
                     
                 </p>
                 <a href="/2022/04/05/%E6%B5%8B%E8%AF%95%E7%AF%87/" class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #EF4DB6 0%, #C643FC 100%)" target="_blank">
@@ -685,7 +682,7 @@ Misc金三胖下载解压，直接保存所有图片，看到flag大概是hello 
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="ctf（WP）">
+                            <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="ctf（WP）">
                             
                             <span class="card-title">ctf（WP）</span>
                         </div>
@@ -722,7 +719,7 @@ Misc金三胖下载解压，直接保存所有图片，看到flag大概是hello 
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="测试篇">
+                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="测试篇">
                             
                             <span class="card-title">测试篇</span>
                         </div>
@@ -747,6 +744,14 @@ Misc金三胖下载解压，直接保存所有图片，看到flag大概是hello 
                         </div>
                     </div>
 
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/Typora/">
+                            <span class="chip bg-color">Typora</span>
+                        </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -1051,8 +1056,6 @@ $(function () {
     })();
 </script>
 
-    
-    <script src="/libs/others/clicklove.js" async="async"></script>
     
     
     <script async src="/libs/others/busuanzi.pure.mini.js"></script>
