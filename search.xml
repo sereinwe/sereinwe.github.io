@@ -4,6 +4,27 @@
   
     
     <entry>
+      <title>ctf（vip限免）WP</title>
+      <link href="/2022/04/09/ctf%EF%BC%88vip%E9%99%90%E5%85%8D%EF%BC%89WP/"/>
+      <url>/2022/04/09/ctf%EF%BC%88vip%E9%99%90%E5%85%8D%EF%BC%89WP/</url>
+      
+        <content type="html"><![CDATA[<h2 id="源码泄露"><a href="#源码泄露" class="headerlink" title="源码泄露"></a>源码泄露</h2><p>看题就是要我们看源码，在浏览器里 Ctrl + U 直接查看网页源码，这里也是可以直接看到flag<br><img src="https://img-blog.csdnimg.cn/cb7b532e92b249ec8e4f8f7d705884ba.png"></p><h2 id="前台JS绕过"><a href="#前台JS绕过" class="headerlink" title="前台JS绕过"></a>前台JS绕过</h2><p>这个题就是不能用F12进行查看源码了，我们的 Ctrl + U 还是可以用的，直接可以得到flag<br><img src="https://img-blog.csdnimg.cn/dc3a5f5b88244e95b2a8cb668b60715b.png"></p><h2 id="协议头信息泄露"><a href="#协议头信息泄露" class="headerlink" title="协议头信息泄露"></a>协议头信息泄露</h2><p>题目提示要我们抓包，那就抓，抓完这样，什么也没看到<br><img src="https://img-blog.csdnimg.cn/e5b754dd872a4c709b9613b1bfb6999e.png"><br>上网搜搜原来是要查看响应头，才能得到flag，记录一下查看步骤，一免以后忘记<br>先点图示位置<br><img src="https://img-blog.csdnimg.cn/311432001e6e4e3e840b659851d214bb.png"><br>这里点击 Repeater 再点 Go ，就可以在右边看到flag<br><img src="https://img-blog.csdnimg.cn/28c19fc2d7554aa583fbefc24d642b4e.png"></p><h2 id="robots后台泄露"><a href="#robots后台泄露" class="headerlink" title="robots后台泄露"></a>robots后台泄露</h2><p>robots之前做过，就是在网站后面加上 &#x2F;robots.txt 看他的目录，就可以得到flag<br><img src="https://img-blog.csdnimg.cn/831b09588f794424a483c375fa051a1e.png"><br><img src="https://img-blog.csdnimg.cn/a8d9769d48f0477691a1e763069f8205.png"></p><h2 id="phps源码泄露"><a href="#phps源码泄露" class="headerlink" title="phps源码泄露"></a>phps源码泄露</h2><p>上网搜phps源码大概知道了phps文件就是php的源码文件，通常用于提供给用户查看php代码，但是因为用户无法直接通过Web浏览器查看php文件的内容，所以用phps文件代替。大概就是要我们查看phps文件所以直接在网址后面加 &#x2F;index.phps ，下载phps文件后打开，可以看到fag<br><img src="https://img-blog.csdnimg.cn/97ea6482b4aa47c3a2c08379c3e1b23e.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/357a9d50b1c14dbbbfd4591ce65d4764.png"></p><h2 id="源码压缩包泄露"><a href="#源码压缩包泄露" class="headerlink" title="源码压缩包泄露"></a>源码压缩包泄露</h2><p>访问<a href="http://www.zip得到一个压缩包,看到一个flag,提交后提示错误,肯定是假的.又看了第二个文件,里面也没有flag,但是我们可以看到信息,关于flag的/">www.zip得到一个压缩包，看到一个flag，提交后提示错误，肯定是假的。又看了第二个文件，里面也没有flag，但是我们可以看到信息，关于flag的</a><br><img src="https://img-blog.csdnimg.cn/e2186592924e449e8d81efd50e6763c3.png"><br>那么就直接访问fl000g.txt得到flag<br><img src="https://img-blog.csdnimg.cn/f97c4274e23a4c5c96d03dc1a21589c3.png"></p><h2 id="版本控制泄露源码"><a href="#版本控制泄露源码" class="headerlink" title="版本控制泄露源码"></a>版本控制泄露源码</h2><p>不知道这是啥，搜到的大概是这样<br><img src="https://img-blog.csdnimg.cn/b8079cb4a9f84084ad4fa08824d8e661.png"><br>就访问.git看看，直接得到flag<br><img src="https://img-blog.csdnimg.cn/ac0c7731ebee4c729a51b90f1984420e.png"></p><h2 id="版本控制泄露源码2"><a href="#版本控制泄露源码2" class="headerlink" title="版本控制泄露源码2"></a>版本控制泄露源码2</h2><p>这次访问.git 发现并没有得到flag ，那就试试.svn居然又得到flag了<br><img src="https://img-blog.csdnimg.cn/e318bbbbc2164a3b9c3d4101c718e98d.png"></p><h2 id="vim临时文件泄露"><a href="#vim临时文件泄露" class="headerlink" title="vim临时文件泄露"></a>vim临时文件泄露</h2><p>搜vim临时文件得知</p><ul><li>Vim是从 vi 发展出来的文本编译器。</li></ul><p>看这个题的描述应该是有个什么文件的，需要我们去找一下。<br>搜集到的信息大概就是：</p><ul><li>vim意外退出的话，再次打开该文件就会提示存在一个.swp的隐藏文件，意味着该文件正在被编辑。</li></ul><p>所以我们访问index.php.swp就可以得到flag了<br><img src="https://img-blog.csdnimg.cn/c43b81871c7940efa4a56fb7bb2c2985.png"><br><img src="https://img-blog.csdnimg.cn/e1f272e8a5d04094a7755f04519adac3.png"></p><h2 id="cookie泄露"><a href="#cookie泄露" class="headerlink" title="cookie泄露"></a>cookie泄露</h2><p>抓包直接可以看到flag<br><img src="https://img-blog.csdnimg.cn/47734964fa4c48298b4fb750b6934dd8.png"></p><h2 id="域名txt记录泄露"><a href="#域名txt记录泄露" class="headerlink" title="域名txt记录泄露"></a>域名txt记录泄露</h2><p>在网上找个<a href="http://www.jsons.cn/nslookup/">在线域名解析</a>，解析后得到flag</p><h2 id="敏感信息公布"><a href="#敏感信息公布" class="headerlink" title="敏感信息公布"></a>敏感信息公布</h2><p>打开网站，访问 &#x2F;admin 弹出登陆窗口，根据题目的提示 大致就是，密码在页面上，看到最下面的手机号试试<br><img src="https://img-blog.csdnimg.cn/b182577567d84f9caafb518a9ac2c656.png"><br>登陆成功后就可以看到flag了<br><img src="https://img-blog.csdnimg.cn/7aad46c2ddb547eaad65fb6a8ce6290b.png"></p><h2 id="内部技术文档泄露"><a href="#内部技术文档泄露" class="headerlink" title="内部技术文档泄露"></a>内部技术文档泄露</h2><p>打开网站，题目是关于文档的，就找关于文档的东西，在最下面可以看到document，直接点进去<br><img src="https://img-blog.csdnimg.cn/47d1756ef9ac47749d9fd60098a134ba.png"><br>根据上面的后台地址，得知我们要访问 &#x2F;system1103&#x2F;login.php 来登陆，输入正确的账号密码就可以得到flag了<br><img src="https://img-blog.csdnimg.cn/70737f3db9a842f1852fc5c5e8a3eeb4.png"></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> ctf </tag>
+            
+            <tag> web </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Java（二）语言基础</title>
       <link href="/2022/04/09/Java%EF%BC%88%E4%BA%8C%EF%BC%89%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/"/>
       <url>/2022/04/09/Java%EF%BC%88%E4%BA%8C%EF%BC%89%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/</url>
