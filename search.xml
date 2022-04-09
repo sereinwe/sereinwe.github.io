@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>ctf（WP）</title>
+      <link href="/2022/04/09/ctf%EF%BC%88WP%EF%BC%89/"/>
+      <url>/2022/04/09/ctf%EF%BC%88WP%EF%BC%89/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h2><h4 id="金三胖"><a href="#金三胖" class="headerlink" title="金三胖"></a>金三胖</h4><p>下载解压，直接保存所有图片，看到flag大概是hello hongke经过不断尝试，把字母o改成数字0，加空格该大写什么的，终于知道了原来是hello中间的两个ll是数字11</p><h4 id="二维码"><a href="#二维码" class="headerlink" title="二维码"></a>二维码</h4><p>打开二维码，用识别工具识别一下再用010打开这个二维码，可以看到明显的zip文件的格式开头<img src="https://img-blog.csdnimg.cn/37f97c5aeca4439790a422ba8143a0fe.png" alt="在这里插入图片描述"> 新建一个文件，把这行后面的都cv过去，得到一个新压缩包，打开要我们输密码，提示是4number,直接暴力破解，可以得到密码，进入打开txt文件，得到flag<img src="https://img-blog.csdnimg.cn/93250cf141ee4c469cf9070b14bbd0fc.png" alt="在这里插入图片描述">#### 你竟然赶我走不知道要干啥，就用010打开压缩包里的图片，直接搜索flag,得到结果</p><h4 id="N种方法解决"><a href="#N种方法解决" class="headerlink" title="N种方法解决"></a>N种方法解决</h4><p>打开压缩包得到exe文件，开始不知道怎么办，网上找到就是找个文本编译器打开就行，刚好我下载的EditPlus直接用这个打开开到这样的文本，不知道干啥直接复制上网搜<img src="https://img-blog.csdnimg.cn/1a1cc2f9c9404900be7e09bacb89adb4.png" alt="在这里插入图片描述">得知这是base64和图片的互转码，直接找个<a href="https://tools.kalvinbg.cn/image/base64Image">base64图片在线网址 </a> 得到二维码，识别一下得到flag</p><h4 id="大白"><a href="#大白" class="headerlink" title="大白"></a>大白</h4><p>仔细看看图片什么也没有，看看提示，想想应该是要修改图片的宽和高，010打开直接改第二行的值，把图片改高一点，效果如下<img src="https://img-blog.csdnimg.cn/ddb178d2eb3f496b88357b675fe42c90.png" alt="在这里插入图片描述"> 得到flag</p><h4 id="基础破解"><a href="#基础破解" class="headerlink" title="基础破解"></a>基础破解</h4><p>打开压缩包里的压缩包，要我们输密码，提示是4位数字密码加密，直接暴力破解，得到密码</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> ctf </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Java（一）初识Java</title>
       <link href="/2022/04/09/Java%EF%BC%88%E4%B8%80%EF%BC%89%E5%88%9D%E8%AF%86Java/"/>
       <url>/2022/04/09/Java%EF%BC%88%E4%B8%80%EF%BC%89%E5%88%9D%E8%AF%86Java/</url>
@@ -23,22 +42,9 @@
     
     
     <entry>
-      <title>ctf（WP）</title>
-      <link href="/2022/04/05/ctf%EF%BC%88WP%EF%BC%89/"/>
-      <url>/2022/04/05/ctf%EF%BC%88WP%EF%BC%89/</url>
-      
-        <content type="html"><![CDATA[<p>CSDN里不让发的，只能发这里了</p><span id="more"></span><h2 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h2><h4 id="金三胖"><a href="#金三胖" class="headerlink" title="金三胖"></a>金三胖</h4><p>下载解压，直接保存所有图片，看到flag大概是hello hongke经过不断尝试，把字母o改成数字0，加空格该大写什么的，终于知道了原来是hello中间的两个ll是数字11</p><h4 id="二维码"><a href="#二维码" class="headerlink" title="二维码"></a>二维码</h4><p>打开二维码，用识别工具识别一下再用010打开这个二维码，可以看到明显的zip文件的格式开头<img src="https://img-blog.csdnimg.cn/37f97c5aeca4439790a422ba8143a0fe.png" alt="在这里插入图片描述"> 新建一个文件，把这行后面的都cv过去，得到一个新压缩包，打开要我们输密码，提示是4number,直接暴力破解，可以得到密码，进入打开txt文件，得到flag<img src="https://img-blog.csdnimg.cn/93250cf141ee4c469cf9070b14bbd0fc.png" alt="在这里插入图片描述">#### 你竟然赶我走不知道要干啥，就用010打开压缩包里的图片，直接搜索flag,得到结果</p><h4 id="N种方法解决"><a href="#N种方法解决" class="headerlink" title="N种方法解决"></a>N种方法解决</h4><p>打开压缩包得到exe文件，开始不知道怎么办，网上找到就是找个文本编译器打开就行，刚好我下载的EditPlus直接用这个打开开到这样的文本，不知道干啥直接复制上网搜<img src="https://img-blog.csdnimg.cn/1a1cc2f9c9404900be7e09bacb89adb4.png" alt="在这里插入图片描述">得知这是base64和图片的互转码，直接找个<a href="https://tools.kalvinbg.cn/image/base64Image">base64图片在线网址 </a> 得到二维码，识别一下得到flag</p><h4 id="大白"><a href="#大白" class="headerlink" title="大白"></a>大白</h4><p>仔细看看图片什么也没有，看看提示，想想应该是要修改图片的宽和高，010打开直接改第二行的值，把图片改高一点，效果如下<img src="https://img-blog.csdnimg.cn/ddb178d2eb3f496b88357b675fe42c90.png" alt="在这里插入图片描述"> 得到flag</p><h4 id="基础破解"><a href="#基础破解" class="headerlink" title="基础破解"></a>基础破解</h4><p>打开压缩包里的压缩包，要我们输密码，提示是4位数字密码加密，直接暴力破解，得到密码</p>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>测试篇</title>
-      <link href="/2022/04/05/%E6%B5%8B%E8%AF%95%E7%AF%87/"/>
-      <url>/2022/04/05/%E6%B5%8B%E8%AF%95%E7%AF%87/</url>
+      <link href="/2022/04/08/%E6%B5%8B%E8%AF%95%E7%AF%87/"/>
+      <url>/2022/04/08/%E6%B5%8B%E8%AF%95%E7%AF%87/</url>
       
         <content type="html"><![CDATA[<p>这里会显示为正文。</p><h2 id="这样加标题"><a href="#这样加标题" class="headerlink" title="这样加标题"></a>这样加标题</h2><p>段落与段落之间要有一个空行。</p><p>这样方便读者阅读。</p><h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><blockquote><p>这样写引用，直接在句子前面加英文的 大于号 即 “&gt;”</p></blockquote><h3 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h3><p>在英文状态下输入两种括号，分别是：”[]“和“()”</p><p><a href="www.baidu.com">百度</a></p><h3 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h3><p>与超链接的区别就是在前面加了一个引文的 感叹号 即“!”</p><p>![百度上的风景图]</p><p>暂时有问题，先跳过</p><h3 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h3><p>在行的前面加上 星号 * 就可以了</p><ul><li>像这样，那个星号就会变成一个点  </li><li>可以多写几个表示无序列表</li></ul><h3 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h3><p>采用<font color =red>数字.</font>的形式表示有序列表</p><ol><li>像这样就是有序列表</li><li>这样可以使文章更有条理按回车就会自动向后面排序列了，再按回车可取消序列排序</li></ol><h3 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h3><hr><hr><p>像上面这样的分割线需要我们用三个及三个以上的短杠或者星号就可以做到</p><h3 id="代码测试"><a href="#代码测试" class="headerlink" title="代码测试"></a>代码测试</h3><pre><code>这里是第一行第二第三</code></pre><p>现在结束代码</p><p>由于前面的失误，导致文件无法更新到远程库，所以我写一句话，来测试一下看看有没有更新。</p><h3 id="网易云音乐测试"><a href="#网易云音乐测试" class="headerlink" title="网易云音乐测试"></a>网易云音乐测试</h3><p>测试成功</p>]]></content>
       
