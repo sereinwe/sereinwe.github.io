@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="sereinwe">
-    <meta name="description" content="Justice may be late, but will never be absent.">
+    <meta name="keywords" content="Java（二）语言基础, sereinwe">
+    <meta name="description" content="坚持学习第二天">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +19,7 @@
 
     
 
-    <title>sereinwe</title>
+    <title>Java（二）语言基础 | sereinwe</title>
     <link rel="icon" type="image/png" href="/medias/ps/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -488,521 +488,731 @@
 </header>
 
     
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Java（二）语言基础</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
 <style>
-    .carousel-control {
-        width: 45px;
-        height: 45px;
-        line-height: 55px;
-        border-radius: 45px;
-        background: transparent;
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Java/">
+                                <span class="chip bg-color">Java</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-04-09
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2022-04-09
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.5k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    5 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>​<br>标识符<br>1、什么是标识符？</p>
+<pre><code>    - 在java源程序中凡是程序员有权利自己命名的单词都是标识符
+    - 在EditPlus编译器中以黑色字体高亮显示
+    - 标识符可以标识 类名、方法名、变量名、接口名、常量名······
+</code></pre>
+<p>2、标识符的命名规则【必须按照命名规则的语法来编写，否则编译器会报错】</p>
+<pre><code>    - 一个合法的标识符只能有 数字、字母、下划线_、美元符号$ 组成，不能含有其它符号
+    - 不能数字开头
+    - 严格区分字母大小写
+    - 关键字不能做标识符 （关键字见下文）
+    - 理论上无长度限制，但是最好不要太长
+</code></pre>
+<p>3、标识符的命名规范【只是一种规范，不属于语法，不遵守规范编译器不会报错】</p>
+<pre><code>    - 最好见名知意
+            public class UserService&#123;
+                    public void login(String username,String password)&#123;
+                    &#125;
+            &#125;
+    - 遵守驼峰命名方式（单词首字母大写，便于区分）
+            SystemService
+            UseService
+            CustomerService
+    - 类名、接口名：首字母大写，后面每个单词首字母大写。
+    - 变量名、方法名：首字母小写，后面每个单词首字母大写。
+    - 常量名：全部大写
+</code></pre>
+<p>关键字<br>        - 关键字在Java语言中全部是小写<br>        - 关键字在EditPlus编译器中以蓝色高亮显示<br>        - 常见的关键词：<br>                public                class                static                void<br>                if                        for                    while                do<br>                default               byte                  short                int<br>                long                   float                  double              boolean<br>                char                   private              protected          switch<br>                true                    false                 throw                 throws<br>                try                      catch                ······</p>
+<p>字面值<br>        - 常见的字面值：<br>                10（整数型字面值）            3.14（浮点型字面值）                    ‘a’（字符型字面值）<br>                “abc”（字符串型字面值）    false、true（布尔型字面值）          ······<br>        - 字面值就是数据<br>        - 字面值是java源程序的组成部分之一，其还包括标识符，关键字</p>
+<p>变量<br>1、什么是变量？</p>
+<pre><code>    - 变量本质上是内存中的一块空间，这块空间“有数据类型”、“有名字”、“有字面值”。
+    - 变量包含三部分：数据类型、名称、字面值【数据】
+    - 变量是内存中储存数据的最基本的单元。
+</code></pre>
+<p>2、数据类型的作用（起到指导的作用）</p>
+<pre><code>    - 不同的数据有不同的类型，不同的数据类型底层会分配不同大小的哦空间。
+    - 数据类型可以指导程序在运行阶段应该分配多大的内存空间给变量。
+</code></pre>
+<p>注意：变量中储存的具体的 “数据” 必须和变量的 “数据类型” 一致，否则编译报错。</p>
+<p>3、声明&#x2F;定义变量的语法格式</p>
+<pre><code>    - 数据类型 + 空格 + 变量名 + ;
+</code></pre>
+<p>4、变量声明后赋值的语法格式</p>
+<pre><code>    - 变量名 + = + 字面值 + ;
+</code></pre>
+<p>数据类型<br>1、数据类型的作用</p>
+<pre><code>            程序中当有很多数据，每一个数据都是有相关类型的，不同的数据类型的数据占用空间大小不同。
+            数据类型的作用是指导JVM在运行的时候给该数据分配多大的内存空间。
+</code></pre>
+<p>2、基础数据类型</p>
+<pre><code>            - 基本数据类型包括四大类八小种：
+                    第一类：整数型
+                            byte、short、int、long
+                    第二类：浮点型
+                            float、double
+                    第三类：布尔型
+                            boolean
+                    第四类：字符型
+                            char               
+                                    （&#39;\n&#39;在Java中表示一个换行符，属于char类型）
+                                    （&#39;\t&#39;在Java中表示一个制表符，属于char类型）
+</code></pre>
+<p>3、引用数据类型（后续补充）</p>
+<pre><code>            - 类
+            - 接口
+            - 数据
+            ··· ···
+
+    注意：字符串不属于基本数据类型，属于引用数据类型，而字符属于基本数据类型
+</code></pre>
+<p>4、基本数据类型各自占用空间的大小</p>
+<p>基本数据类型    占用空间大小【单位：字节】<br>        byte    1<br>        short    2<br>        int    4<br>        long    8<br>        float    4<br>        double    8<br>        boolean    1<br>        char    2<br>5、字节（byte）</p>
+<pre><code>            - 1 Byte = 8 bit  【1个字节 = 8个比特位】
+                    一个比特位就是一个二进制位，例如一个0，或者一个1
+            - 1 KB = 1024 Byte
+            - 1 MB = 1024 KB
+            - 1 GB = 1024 MB
+            - 1 TB = 1024 GB
+
+    分析：整数型中的Byte类型占用1个字节，也就是8个比特位。
+                    Byte类型的最大值：01111111也就是【10000000减1】127
+                    Byte类型的最小值：-128【注意这个在计算机中存的不是11111111】
+                    Byte类型的取值范围：[-128 ~ 127]，可以表示256个不同的数字【256个二进制】
+
+            补充：关于java中的数字类型
+
+                    数字都是有正负之分的，所以在数字的二进制当中有一个二进制位称为“符号位”。
+                    这个“符号位”在所有二进制位的最左边，0便是正数，1表示负数。
+</code></pre>
+<p>6、System.out.println()和System.out.print()的区别</p>
+<pre><code>    - println()输出之后换行
+    - print()只输出，不换行
+
+            补充：转义字符反斜杠“ \ ”，&#39;\n&#39;表示换行，&#39;\t&#39;表示制表符 
+</code></pre>
+<p>进制换算<br>        - 十进制转二进制</p>
+<pre><code>            例如98转二进制：
+                    在64  32  16  8  4  2  1  中98可以看做是64 + 32 + 2，占用对应位为1，其余位为0
+                    即 1    1    0   0  0  1  0  就是98转换成的二进制
+            也可以用除2的方法进行换算（知道即可，不必深究）
+
+    - 二进制转十进制
+
+            例如1101011转十进制：
+                    此二进制数有7位分别是 64  32  16  8  4  2  1（分别是2的6 5 4 3 2 1 0次方）
+                    对应位置是1的数相加得到此十进制数为 64 + 32 + 8 + 2 + 1 也就是107
+</code></pre>
+<p>字符编码<br>        - 最先出现的字符编码方式：ASCII码 （采用一个字节编码）<br>        - 支持简体中文的编码方式：GB2312 &lt; GBK &lt; GB18030<br>        - 支持全国所有文字的编码方式：unicode编码<br>                java语言采用unicode编码方式，所以“标识符”可以用中文。<br>        - 在java根目录上的bin文件下有一个native2ascii.exe命令可以将中文转换成unicode码</p>
+<p>​<img src="https://img-blog.csdnimg.cn/0059c7b3d60849d1b85570f596f78e90.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAc2VyZWlud2U=,size_17,color_FFFFFF,t_70,g_se,x_16"></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">呆子</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://sereinwe.github.io/2022/04/09/Java%EF%BC%88%E4%BA%8C%EF%BC%89%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/">http://sereinwe.github.io/2022/04/09/Java%EF%BC%88%E4%BA%8C%EF%BC%89%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">呆子</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Java/">
+                                    <span class="chip bg-color">Java</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
         cursor: pointer;
-        z-index: 100;
     }
 
-    #prev-cover {
-        position: absolute;
-        top: 48%;
-        left: 8px;
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
     }
 
-    #next-cover {
-        position: absolute;
-        top: 48%;
-        right: 8px;;
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
     }
 
-    #prev-cover i {
-        margin-right: 3px;
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
     }
 
-    #next-cover i {
-        margin-left: 3px;
+    .reward-content ul {
+        padding-left: 0 !important;
     }
 
-    .carousel-control:hover {
-        background-color: rgba(0, 0, 0, .4);
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
     }
 
-    .carousel-control i {
+    .reward-tabs .tab a {
         color: #fff;
-        font-size: 2.4rem;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
     }
 </style>
 
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
 
-
-<div class="carousel carousel-slider center index-cover" data-indicators="true" style="margin-top: -64px;">
-    
-
-    <div class="carousel-item  white-text bg-cover about-cover">
-        <div class="container">
-            <div class="row">
-    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-        <div class="brand">
-            <div class="title center-align">
-                
-                呆子( ￣︿￣ )的个人博客
-                
-            </div>
-
-            <div class="description center-align">
-                
-                <span id="subtitle"></span>
-                <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
-                <script>
-                    var typed = new Typed("#subtitle", {
-                        strings: [ 
-                            
-                                "从来没有真正的绝境, 只有心灵的迷途",
-                            
-                                "Never really desperate, only the lost of the soul",
-                            
-                        ],
-                        startDelay: 300,
-                        typeSpeed: 100,
-                        loop: true,
-                        backSpeed: 50,
-                        showCursor: true
-                    });
-                </script>
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<script>
-    $('.bg-cover').css('background-image', 'url(/medias/banner/0.jpg)');
-</script>
-
-
-
-            <div class="cover-btns">
-                <a href="#indexCard" class="waves-effect waves-light btn">
-                    <i class="fa fa-angle-double-down"></i>开始阅读
-                </a>
-
-                
-                    <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light btn" target="_blank">
-                        <i class="fab fa-github-alt"></i>Github
-                    </a>
-                
-            </div>
-            <div class="cover-social-link">
-    <a href="https://github.com/sereinwe" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-        <i class="fab fa-github"></i>
-    </a>
-
-
-
-    <a href="mailto:2294787265@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-        <i class="fas fa-envelope-open"></i>
-    </a>
-
-
-
-
-
-
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2294787265" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2294787265" data-position="top" data-delay="50">
-        <i class="fab fa-qq"></i>
-    </a>
-
-
-
-
-
-
-
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fas fa-rss"></i>
-    </a>
-
-</div>
-        </div>
-    </div>
-
-    
-        
-
-        
-            
-            <div class="carousel-item amber white-text carousel-post bg-cover"
-                 style="background-image: url('/medias/featureimages/9.jpg');">
-                <div class="container">
-                    <div class="row">
-                        <div class="col s10 offset-s1">
-                            <div class="title center-align">测试篇</div>
-                            <div class="description center-align">
-                                
-                                    这里会显示为摘要。
-                                
-                            </div>
-                            <div class="cover-btns">
-                                <a href="/2022/04/08/%E6%B5%8B%E8%AF%95%E7%AF%87/" class="waves-effect waves-light btn"
-                                   target="_blank">
-                                    <i class="icon fa fa-eye fa-fw"></i>阅读更多
-                                </a>
-                            </div>
-                        </div>
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
                     </div>
                 </div>
             </div>
-        
-    
+        </div>
+    </div>
 </div>
 
 <script>
     $(function () {
-        let coverSlider = $('.carousel');
+        $('.tabs').tabs();
+    });
+</script>
 
-        //用户触摸轮播自动 restartPlay 是否生效
-        let initUserPressedOrDraggedActive = false
-
-        //用户触摸轮播自动 restartPlay
-        function initUserPressedOrDragged(instance) {
-            setInterval(() => {
-                if (instance.pressed || instance.dragged) {
-                    // console.log('initUserPressedOrDragged: ',instance.pressed,instance.dragged)
-                    restartPlay()
-                }
-            }, 1000)
-        }
-
-        coverSlider.carousel({
-            duration: Number('120'),
-            fullWidth: true,
-            indicators: 'false' === 'true',
-            onCycleTo() {
-                if (!initUserPressedOrDraggedActive) {
-                    // console.log('initUserPressedOrDraggedActive')
-                    initUserPressedOrDragged(this)
-                    initUserPressedOrDraggedActive = true
-                }
-            },
-        })
-
-        let carouselIntervalId;
-        
-
-        function restartPlay() {
             
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2022/04/09/Java%EF%BC%88%E4%BA%8C%EF%BC%89%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Java（二）语言基础">
+                        
+                        <span class="card-title">Java（二）语言基础</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            坚持学习第二天
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-09
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            呆子
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/04/09/ctf%EF%BC%88WP%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="ctf（WP）">
+                        
+                        <span class="card-title">ctf（WP）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            CSDN里不让发的，只能发这里了
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-09
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            呆子
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/ctf/">
+                        <span class="chip bg-color">ctf</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
         };
 
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
         
     });
 </script>
 
-
-
-<main class="content">
-
     
-    <div id="indexCard" class="index-card">
-        <div class="container ">
-            <div class="card">
-                <div class="card-content">
-                    
-                        <div class="dream">
-    
-    <div class="title center-align">
-        <i class="far fa-lightbulb"></i>&nbsp;&nbsp;我的梦想
-    </div>
-    
-    <div class="row">
-        <div class="col l8 offset-l2 m10 offset-m1 s10 offset-s1 center-align text">
-            不是每个人都应该像我这样去建造一座水晶大教堂，但是每个人都应该拥有自己的梦想，设计自己的梦想，追求自己的梦想，实现自己的梦想。梦想是生命的灵魂，是心灵的灯塔，是引导人走向成功的信仰。有了崇高的梦想，只要矢志不渝地追求，梦想就会成为现实，奋斗就会变成壮举，生命就会创造奇迹。——罗伯·舒乐
-        </div>
-    </div>
-</div>
-
-                    
-
-                    
-
-                    
-
-                    
-                    <div id="recommend-sections" class="recommend">
-                        
-
-
-
-
-
-<div class="title"><i class="far fa-thumbs-up"></i>&nbsp;&nbsp;推荐文章</div>
-
-<div class="row">
-
-    
-    
-    <div class="col s12" >
-        
-            <div class="post-card" style="background-image: url('/medias/featureimages/12.jpg')">
-            
-            <div class="post-body">
-                <div class="post-categories">
-                    
-                        
-                    
-                </div>
-                <a href="/2022/04/09/Java%EF%BC%88%E4%B8%80%EF%BC%89%E5%88%9D%E8%AF%86Java/">
-                    <h3 class="post-title">Java（一）初识Java</h3>
-                </a>
-                <p class="post-description">今天开始我的Java学习</p>
-                <a href="/2022/04/09/Java%EF%BC%88%E4%B8%80%EF%BC%89%E5%88%9D%E8%AF%86Java/" class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #FF5E3A 0%, #FF2A68 100%)" target="_blank">
-                    <i class="icon far fa-eye fa-fw"></i>阅读更多
-                </a>
-            </div>
-        </div>
-    </div>
-    
-    
-    <div class="col s12 m6" data-aos="zoom-in-up">
-        
-            <div class="post-card" style="background-image: url('/medias/featureimages/4.jpg')">
-            
-            <div class="post-body">
-                <div class="post-categories">
-                    
-                        
-                    
-                </div>
-                <a href="/2022/04/09/Java%EF%BC%88%E4%BA%8C%EF%BC%89%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/">
-                    <h3 class="post-title">Java（二）语言基础</h3>
-                </a>
-                <p class="post-description">坚持学习第二天</p>
-                <a href="/2022/04/09/Java%EF%BC%88%E4%BA%8C%EF%BC%89%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #EF4DB6 0%, #C643FC 100%)" target="_blank">
-                    <i class="icon far fa-eye fa-fw"></i>阅读更多
-                </a>
-            </div>
-        </div>
-    </div>
-    
-    
-    <div class="col s12 m6" data-aos="zoom-in-up">
-        
-            <div class="post-card" style="background-image: url('/medias/featureimages/7.jpg')">
-            
-            <div class="post-body">
-                <div class="post-categories">
-                    
-                        
-                    
-                </div>
-                <a href="/2022/04/09/ctf%EF%BC%88WP%EF%BC%89/">
-                    <h3 class="post-title">ctf（WP）</h3>
-                </a>
-                <p class="post-description">CSDN里不让发的，只能发这里了</p>
-                <a href="/2022/04/09/ctf%EF%BC%88WP%EF%BC%89/" class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #1AD6FD 0%, #1D62F0 100%)" target="_blank">
-                    <i class="icon far fa-eye fa-fw"></i>阅读更多
-                </a>
-            </div>
-        </div>
-    </div>
-    
-
-</div>
-
-
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-    
-
-    
-
-    <!-- 所有文章卡片 -->
-    <article id="articles" class="container articles">
-        <div class="row article-row">
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/04/09/Java%EF%BC%88%E4%B8%80%EF%BC%89%E5%88%9D%E8%AF%86Java/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Java（一）初识Java">
-                            
-                            <span class="card-title">Java（一）初识Java</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                今天开始我的Java学习
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-09
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                呆子
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/Java/">
-                            <span class="chip bg-color">Java</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/04/09/Java%EF%BC%88%E4%BA%8C%EF%BC%89%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Java（二）语言基础">
-                            
-                            <span class="card-title">Java（二）语言基础</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                坚持学习第二天
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-09
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                呆子
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/Java/">
-                            <span class="chip bg-color">Java</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/04/09/ctf%EF%BC%88WP%EF%BC%89/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="ctf（WP）">
-                            
-                            <span class="card-title">ctf（WP）</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                CSDN里不让发的，只能发这里了
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-09
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                呆子
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/ctf/">
-                            <span class="chip bg-color">ctf</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/04/08/%E6%B5%8B%E8%AF%95%E7%AF%87/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="测试篇">
-                            
-                            <span class="card-title">测试篇</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                这里会显示为摘要。
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-08
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                呆子
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/Typora/">
-                            <span class="chip bg-color">Typora</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-        </div>
-    </article>
 
 </main>
 
