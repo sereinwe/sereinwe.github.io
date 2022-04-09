@@ -4,12 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="ctf（WP）, sereinwe">
-    <meta name="description" content="CSDN里不让发的，只能发这里了
-
-
-Misc金三胖下载解压，直接保存所有图片，看到flag大概是hello hongke经过不断尝试，把字母o改成数字0，加空格该大写什么的，终于知道了原来是hello中间的两个ll是数字11
-二维码打开二">
+    <meta name="keywords" content="Java（一）初识Java, sereinwe">
+    <meta name="description" content="填写摘要">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -23,7 +19,7 @@ Misc金三胖下载解压，直接保存所有图片，看到flag大概是hello 
 
     
 
-    <title>ctf（WP） | sereinwe</title>
+    <title>Java（一）初识Java | sereinwe</title>
     <link rel="icon" type="image/png" href="/medias/ps/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -495,12 +491,12 @@ Misc金三胖下载解压，直接保存所有图片，看到flag大概是hello 
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">ctf（WP）</h1>
+                    <h1 class="description center-align post-title">Java（一）初识Java</h1>
                 </div>
             </div>
         </div>
@@ -614,9 +610,13 @@ Misc金三胖下载解压，直接保存所有图片，看到flag大概是hello 
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Typora/">
+                                <span class="chip bg-color">Typora</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -628,21 +628,21 @@ Misc金三胖下载解压，直接保存所有图片，看到flag大概是hello 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-04-05
+                    2022-04-09
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-04-06
+                    2022-04-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    413
+                    0
                 </div>
                 
 
@@ -669,15 +669,7 @@ Misc金三胖下载解压，直接保存所有图片，看到flag大概是hello 
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>CSDN里不让发的，只能发这里了</p>
-<span id="more"></span>
-
-<h2 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h2><h4 id="金三胖"><a href="#金三胖" class="headerlink" title="金三胖"></a>金三胖</h4><p>下载解压，直接保存所有图片，看到flag大概是hello hongke经过不断尝试，把字母o改成数字0，加空格该大写什么的，终于知道了原来是hello中间的两个ll是数字11</p>
-<h4 id="二维码"><a href="#二维码" class="headerlink" title="二维码"></a>二维码</h4><p>打开二维码，用识别工具识别一下再用010打开这个二维码，可以看到明显的zip文件的格式开头<img src="https://img-blog.csdnimg.cn/37f97c5aeca4439790a422ba8143a0fe.png" alt="在这里插入图片描述"> 新建一个文件，把这行后面的都cv过去，得到一个新压缩包，打开要我们输密码，提示是4number,直接暴力破解，可以得到密码，进入打开txt文件，得到flag<img src="https://img-blog.csdnimg.cn/93250cf141ee4c469cf9070b14bbd0fc.png" alt="在这里插入图片描述">#### 你竟然赶我走不知道要干啥，就用010打开压缩包里的图片，直接搜索flag,得到结果</p>
-<h4 id="N种方法解决"><a href="#N种方法解决" class="headerlink" title="N种方法解决"></a>N种方法解决</h4><p>打开压缩包得到exe文件，开始不知道怎么办，网上找到就是找个文本编译器打开就行，刚好我下载的EditPlus直接用这个打开开到这样的文本，不知道干啥直接复制上网搜<img src="https://img-blog.csdnimg.cn/1a1cc2f9c9404900be7e09bacb89adb4.png" alt="在这里插入图片描述">得知这是base64和图片的互转码，直接找个<a target="_blank" rel="noopener" href="https://tools.kalvinbg.cn/image/base64Image">base64图片在线网址 </a> 得到二维码，识别一下得到flag</p>
-<h4 id="大白"><a href="#大白" class="headerlink" title="大白"></a>大白</h4><p>仔细看看图片什么也没有，看看提示，想想应该是要修改图片的宽和高，010打开直接改第二行的值，把图片改高一点，效果如下<img src="https://img-blog.csdnimg.cn/ddb178d2eb3f496b88357b675fe42c90.png" alt="在这里插入图片描述"> 得到flag</p>
-<h4 id="基础破解"><a href="#基础破解" class="headerlink" title="基础破解"></a>基础破解</h4><p>打开压缩包里的压缩包，要我们输密码，提示是4位数字密码加密，直接暴力破解，得到密码</p>
-
+                
                 
             </div>
             <hr/>
@@ -703,7 +695,7 @@ Misc金三胖下载解压，直接保存所有图片，看到flag大概是hello 
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://sereinwe.github.io/2022/04/05/ctf%EF%BC%88WP%EF%BC%89/">http://sereinwe.github.io/2022/04/05/ctf%EF%BC%88WP%EF%BC%89/</a>
+                    <a href="http://sereinwe.github.io/2022/04/09/Java%EF%BC%88%E4%B8%80%EF%BC%89%E5%88%9D%E8%AF%86Java/">http://sereinwe.github.io/2022/04/09/Java%EF%BC%88%E4%B8%80%EF%BC%89%E5%88%9D%E8%AF%86Java/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -740,7 +732,11 @@ Misc金三胖下载解压，直接保存所有图片，看到flag大概是hello 
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/Typora/">
+                                    <span class="chip bg-color">Typora</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -912,9 +908,10 @@ Misc金三胖下载解压，直接保存所有图片，看到flag大概是hello 
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2022/04/09/Java%EF%BC%88%E4%B8%80%EF%BC%89%E5%88%9D%E8%AF%86Java/">
                     <div class="card-image">
@@ -932,9 +929,9 @@ Misc金三胖下载解压，直接保存所有图片，看到flag大概是hello 
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-04-09
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-09
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -943,6 +940,7 @@ Misc金三胖下载解压，直接保存所有图片，看到flag大概是hello 
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -961,19 +959,19 @@ Misc金三胖下载解压，直接保存所有图片，看到flag大概是hello 
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/04/05/%E6%B5%8B%E8%AF%95%E7%AF%87/">
+                <a href="/2022/04/05/ctf%EF%BC%88WP%EF%BC%89/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="测试篇">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="ctf（WP）">
                         
-                        <span class="card-title">测试篇</span>
+                        <span class="card-title">ctf（WP）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            这里会显示为摘要。
+                            CSDN里不让发的，只能发这里了
                         
                     </div>
                     <div class="publish-info">
@@ -987,14 +985,6 @@ Misc金三胖下载解压，直接保存所有图片，看到flag大概是hello 
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Typora/">
-                        <span class="chip bg-color">Typora</span>
-                    </a>
-                    
                 </div>
                 
             </div>
