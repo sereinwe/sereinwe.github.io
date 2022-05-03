@@ -645,21 +645,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-04-26
+                    2022-04-27
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    637
+                    824
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
 
@@ -708,7 +708,27 @@
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>form语句是去请求  index.php 方法是 get<br>接受一个参数，叫 page<br>最后接收配置参数 pade ，之后直接 include </p>
 <p>include 就是函数体里包含一些敏感文件的话，就会把这些敏感文件显示出来，造成文件泄露。</p>
-
+<p>提前在根目录下放一个123.php 文件，方便后续查看</p>
+<p><img src="https://img-blog.csdnimg.cn/350d18f7236449019a81c67e270bdcb1.png"></p>
+<p>内容就是一个字母 a<br>然后就是给 page 传参，开始给</p>
+<blockquote>
+<p>?page&#x3D;123.php</p>
+</blockquote>
+<p>发现没有显示，所以就向上一个目录，在前面加 ..&#x2F;</p>
+<blockquote>
+<p>?page&#x3D;..&#x2F;123.php</p>
+</blockquote>
+<p>直接在页面上显示成功了</p>
+<p><img src="https://img-blog.csdnimg.cn/15a821bb05c442e292f44dd62d0e214c.png"></p>
+<h5 id="lfi-2"><a href="#lfi-2" class="headerlink" title="lfi-2"></a>lfi-2</h5><p>看看第二题的核心代码</p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token keyword">include</span><span class="token punctuation">(</span><span class="token string">"includes/"</span><span class="token punctuation">.</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'library'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token string">".php"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token delimiter">?></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>大致就是字符串的一个拼接，就是传入的includes&#x2F;传入的参数.php，因此我们在这里要是用%00阶段<br>故应该传 <strong>library&#x3D;123.php%00</strong> 就可以了</p>
+<p>然后尝试在前面多次加 ..&#x2F; ，依次向上一个目录，经过尝试最终也是显示到了123.php</p>
+<p><img src="https://img-blog.csdnimg.cn/5cff025d89f84abb891706e1205bbc66.png"></p>
+<h5 id="lfi-3"><a href="#lfi-3" class="headerlink" title="lfi-3"></a>lfi-3</h5><h5 id="lfi-4"><a href="#lfi-4" class="headerlink" title="lfi-4"></a>lfi-4</h5><h5 id="lfi-5"><a href="#lfi-5" class="headerlink" title="lfi-5"></a>lfi-5</h5>
                 
             </div>
             <hr/>
@@ -1482,6 +1502,6 @@ $(function () {
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":120,"height":240},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 
 </html>
