@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="文件包含漏洞, HTML,CSS,java,web">
-    <meta name="description" content="关于文件包含漏洞的知识点总结。">
+    <meta name="keywords" content="ctf.show的WP, HTML,CSS,java,web">
+    <meta name="description" content="以前show 的题目">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -28,7 +28,7 @@
     </style>
 
 
-    <title>文件包含漏洞 | sereinwe</title>
+    <title>ctf.show的WP | sereinwe</title>
     <link rel="icon" type="image/png" href="/medias/ps/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -523,12 +523,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">文件包含漏洞</h1>
+                    <h1 class="description center-align post-title">ctf.show的WP</h1>
                 </div>
             </div>
         </div>
@@ -644,8 +644,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/web/">
-                                <span class="chip bg-color">web</span>
+                            <a href="/tags/ctf/">
+                                <span class="chip bg-color">ctf</span>
                             </a>
                         
                     </div>
@@ -656,8 +656,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/web/" class="post-category">
-                                web
+                            <a href="/categories/%E7%AC%94%E8%AE%B0/" class="post-category">
+                                笔记
                             </a>
                         
                     </div>
@@ -669,28 +669,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-04-24
+                    2022-05-04
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-04-27
+                    2022-05-04
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    824
+                    1.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    5 分
                 </div>
                 
 
@@ -710,56 +710,49 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h5 id="文件包含简介"><a href="#文件包含简介" class="headerlink" title="文件包含简介"></a>文件包含简介</h5><p>服务器执行PHP文件时，可以通过文件包含函数加载另一个文件中的PHP代码，并且当PHP来执行，这会为开发者节省大量的时间。这意味着您可以创建供所有网页引用的标准页眉或菜单文件。当页眉需要更新时，您只更新一个包含文件就可以了，或者当您向网站添加一张新页面时，仅仅需要修改一下菜单文件。<br>简单一句话就是：为了更好的使用代码的重用性，引入了文件包含函数，可以通过文件包含函数将文件包含进来，直接使用包含文件的代码。</p>
-<h3 id="文件包含函数"><a href="#文件包含函数" class="headerlink" title="文件包含函数"></a>文件包含函数</h3><p>PHP中文件包含函数有以下四种：</p>
-<blockquote>
-<p>require()<br>require_once()<br>include()<br>include_once()</p>
-</blockquote>
-<p>include和require区别主要是，include在包含的过程中如果出现错误，会抛出一个警告，程序继续正常运行；而require函数出现错误的时候，会直接报错并退出程序的执行。</p>
-<p>而include_once()，require_once()这两个函数，与前两个的不同之处在于这两个函数只包含一次，适用于在脚本执行期间同一个文件有可能被包括超过一次的情况下，你想确保它只被包括一次以避免函数重定义，变量重新赋值等问题。</p>
-<h3 id="漏洞产生的原因"><a href="#漏洞产生的原因" class="headerlink" title="漏洞产生的原因"></a>漏洞产生的原因</h3><p>在包含文件的时候，为了灵活的包含文件，将被包含文件h设置为变量，通过动态变量来引入需要包含的文件时，用户可以对变量的值可控而服务器端未对变量值进行合理的校验或者校验被找过，这样就导致了文件包含漏洞。通常文件包含漏洞都出现在PHP原因中。</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
-    <span class="token variable">$filename</span>  <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'filename'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token keyword">include</span><span class="token punctuation">(</span><span class="token variable">$filename</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token delimiter">?></span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="文件包含函数：-读取文件和文件执行"><a href="#文件包含函数：-读取文件和文件执行" class="headerlink" title="文件包含函数：(读取文件和文件执行)"></a>文件包含函数：(读取文件和文件执行)</h3><h3 id="LFI题目"><a href="#LFI题目" class="headerlink" title="LFI题目"></a>LFI题目</h3><h5 id="lfi-1"><a href="#lfi-1" class="headerlink" title="lfi-1"></a>lfi-1</h5><p>先看一下题目后台的源码，稍稍分析一下：</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>     <span class="token keyword">include</span><span class="token punctuation">(</span><span class="token string">"../common/header.php"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token delimiter">?></span>
-
-<span class="token markup"><span class="token comment" spellcheck="true">&lt;!-- from https://pentesterlab.com/exercises/php_include_and_post_exploitation/course --></span></span>
-<span class="token delimiter">&lt;?php</span> <span class="token function">hint</span><span class="token punctuation">(</span><span class="token string">"will include the arg specified in the GET parameter \"page\""</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token delimiter">?></span>
-
-<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/LFI-1/index.php<span class="token punctuation">"</span></span> <span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>GET<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
-    <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>page<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
-<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span></span>
-
-<span class="token delimiter">&lt;?php</span>
-<span class="token keyword">include</span><span class="token punctuation">(</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">"page"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token delimiter">?></span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>form语句是去请求  index.php 方法是 get<br>接受一个参数，叫 page<br>最后接收配置参数 pade ，之后直接 include </p>
-<p>include 就是函数体里包含一些敏感文件的话，就会把这些敏感文件显示出来，造成文件泄露。</p>
-<p>提前在根目录下放一个123.php 文件，方便后续查看</p>
-<p><img src="https://img-blog.csdnimg.cn/350d18f7236449019a81c67e270bdcb1.png"></p>
-<p>内容就是一个字母 a<br>然后就是给 page 传参，开始给</p>
-<blockquote>
-<p>?page&#x3D;123.php</p>
-</blockquote>
-<p>发现没有显示，所以就向上一个目录，在前面加 ..&#x2F;</p>
-<blockquote>
-<p>?page&#x3D;..&#x2F;123.php</p>
-</blockquote>
-<p>直接在页面上显示成功了</p>
-<p><img src="https://img-blog.csdnimg.cn/15a821bb05c442e292f44dd62d0e214c.png"></p>
-<h5 id="lfi-2"><a href="#lfi-2" class="headerlink" title="lfi-2"></a>lfi-2</h5><p>看看第二题的核心代码</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
-<span class="token keyword">include</span><span class="token punctuation">(</span><span class="token string">"includes/"</span><span class="token punctuation">.</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'library'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token string">".php"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
-<span class="token delimiter">?></span>
+                <h2 id="CRYPTO"><a href="#CRYPTO" class="headerlink" title="CRYPTO"></a>CRYPTO</h2><h3 id="密码学签到"><a href="#密码学签到" class="headerlink" title="密码学签到"></a><font color=#0099ff>密码学签到</font></h3><p>看到题目的密文，开始居然以为是栅栏或者凯撒，后来在尝试中我发下不论是输入多少首位都是括号，<br><img src="https://img-blog.csdnimg.cn/400ec181e9604ecd977b758593dba68a.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6Zu25a2R,size_20,color_FFFFFF,t_70,g_se,x_16"></p>
+<p>然后就看着密文发愁，突然发现最后几个galf反过来不就是flag，这不就是把它们倒过来就行了吗，于是就对了。</p>
+<p><font color="red">flag{ctf.show}</font></p>
+<h3 id="crypto4"><a href="#crypto4" class="headerlink" title="crypto4"></a><font color=#0099ff>crypto4</font></h3><p>这个提就是RSA求解明文,要用到工具RSA Tool <a target="_blank" rel="noopener" href="http://www.pc6.com//softview/SoftView_100193.html">点击下载</a>还有他的使用方法<a target="_blank" rel="noopener" href="https://blog.csdn.net/MikeCoke/article/details/105920084">RSA求解明文</a></p>
+<p>像这样<br><img src="https://img-blog.csdnimg.cn/6b29d55c0ca4412fbe3dfd00f42fe9d6.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6Zu25a2R,size_20,color_FFFFFF,t_70,g_se,x_16"></p>
+<p>输入pqe（注意e是按照十六进制输入的，所以是11）按Calc. D 就可以得到结果<strong>53616899001</strong>，再加上格式就是结果了</p>
+<p><font color="red">flag{53616899001}</font></p>
+<h3 id="crypto5"><a href="#crypto5" class="headerlink" title="crypto5"></a><font color=#0099ff>crypto5</font></h3><p>这个体可以接着上面的题做，就是用Python执行一段代码就可以了</p>
+<pre class="line-numbers language-python"><code class="language-python">n <span class="token operator">=</span> p<span class="token operator">*</span>q
+m <span class="token operator">=</span> pow<span class="token punctuation">(</span>c<span class="token punctuation">,</span>d<span class="token punctuation">,</span>n<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>m<span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>大致就是字符串的一个拼接，就是传入的includes&#x2F;传入的参数.php，因此我们在这里要是用%00阶段<br>故应该传 <strong>library&#x3D;123.php%00</strong> 就可以了</p>
-<p>然后尝试在前面多次加 ..&#x2F; ，依次向上一个目录，经过尝试最终也是显示到了123.php</p>
-<p><img src="https://img-blog.csdnimg.cn/5cff025d89f84abb891706e1205bbc66.png"></p>
-<h5 id="lfi-3"><a href="#lfi-3" class="headerlink" title="lfi-3"></a>lfi-3</h5><h5 id="lfi-4"><a href="#lfi-4" class="headerlink" title="lfi-4"></a>lfi-4</h5><h5 id="lfi-5"><a href="#lfi-5" class="headerlink" title="lfi-5"></a>lfi-5</h5>
+<p>这里的poe(c,d,n)其实就是进行c的d次幂在除以n的余数的运算。最终也是可以得到结果的</p>
+<p><img src="https://img-blog.csdnimg.cn/abfe04b9958d4df48be295f2fedf4e81.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6Zu25a2R,size_20,color_FFFFFF,t_70,g_se,x_16"></p>
+<p>加上格式，提交正确</p>
+<p><font color="red">flag{904332399012}</font></p>
+<h2 id="MISC"><a href="#MISC" class="headerlink" title="MISC"></a>MISC</h2><h3 id="杂项签到"><a href="#杂项签到" class="headerlink" title="杂项签到"></a><font color=#0099ff>杂项签到</font></h3><p>打开压缩包发现一个文件，然后 忘记密码了 这个文件里有一个文档需要我们输入密码，题目也没有提示密码的信息，这样的话密码就没法猜测，所以这个题估计就是伪加密了，用010打开压缩包，将50 4B搜索出来，方便查看</p>
+<p><img src="https://img-blog.csdnimg.cn/c3760cec4e3e4da8bd5145cecc37b613.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6Zu25a2R,size_20,color_FFFFFF,t_70,g_se,x_16"></p>
+<p>仔细看，明显此处的09就是伪加密，将09改为00，保存后再次打开文件，发现不需要密码了，直接得到flag</p>
+<p><font color="red" >flag{79ddfa61bda03defa7bfd8d702a656e4}</font></p>
+<h3 id="misc2"><a href="#misc2" class="headerlink" title="misc2"></a><font color=#0099ff>misc2</font></h3><p>看题目描述，提到了软盘，我也不知道这是啥，所以只能上网搜，<a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_50519965/article/details/116175873">虚拟机安装教程</a>，<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43743762/article/details/99456478">VMware创建软盘映像</a>，<a target="_blank" rel="noopener" href="https://blog.csdn.net/xiaoxinyu316/article/details/26682475">软盘及映像文件的打开</a></p>
+<p>搜到的知识点总结一下就是要我们在虚拟机中添加一个软盘镜像，再打开虚拟机就可以看到结果了</p>
+<p><img src="https://img-blog.csdnimg.cn/f5d95031829e4a7a971d859c50c60321.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6Zu25a2R,size_20,color_FFFFFF,t_70,g_se,x_16"></p>
+<p><font color="red">flag{ctfshow}</font></p>
+<h2 id="WEB"><a href="#WEB" class="headerlink" title="WEB"></a>WEB</h2><h3 id="web签到题"><a href="#web签到题" class="headerlink" title="web签到题"></a><font color=#0099ff>web签到题</font></h3><p>获取题目链节后进入查看，居然</p>
+<p><img src="https://img-blog.csdnimg.cn/17daa0813a14403f96f51c39e8ac33e0.png"></p>
+<p>flag在哪？我也想知道，查看一下网页源代码吧，</p>
+<p><img src="https://img-blog.csdnimg.cn/805c33b494be47ad93b78493c50c187a.png"></p>
+<p>这里也是看到一个东西，不知道是啥，像是一个密文，分析一下，没有花括号{}那就不能是凯撒和栅栏这样的移位加密了，再看看密文组成，有大小写字母还有数字，极有可能是base64（事实证明我是对的）</p>
+<p><img src="https://img-blog.csdnimg.cn/7418cbfa14324aea9c4f5899cad0b763.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6Zu25a2R,size_20,color_FFFFFF,t_70,g_se,x_16"></p>
+<p>最终也是成功得到flag<font color="red">ctfshow{2f26a95e-87c0-457e-8c25-2c52547c369a}</font></p>
+<h3 id="web2"><a href="#web2" class="headerlink" title=" web2"></a><font color=#0099ff> web2</font></h3><p>打开题目链接，就看到一个两个输入框，没啥思路，看看题目描述<font color="blue">最简单的SQL注入 </font> ，以前也没听过什么SQL，赶紧上网搜搜，于是就有这些</p>
+<p>谈到SQL注入，那么自然和数据库有很大的关系。先说数据库，数据库大致可以分为Access数据库、MySQL数据库、SQLServer数据库、Oracle数据库等。Access数据库是比较早期的应用于Web应用的数据库。但是近几年Access数据库的使用再逐渐地减少，这是因为它不能适应大量用户的访问，而且安全性没有其他的数据库高。而现在使用的比较多的是MySQL数据库。SQLServer和Oracle在大型公司比较适用。<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_26139045/article/details/103552569">原文链接</a></p>
+<p>这些</p>
+<p>SQL语言时一门解释型语言，由一个运行时组件解释代码并且执行其中的指令。Python也是一种解释型语言。</p>
+<p>基于解释型语言的执行方式，会产生一系列叫代码注入的漏洞，SQL就是其中的一种。攻击者只需要提交专门设计的SQL语句，向Web应用程序攻击。结果，解释器就会将这其中一部分的输入解释为程序指令来执行了，就和一开始程序员写好的代码一样。因此，SQL注入漏洞就随之形成了。<br>除了语言本身的原因，SQL注入产生的另一个原因就是没有对输入或提交数据进行过滤。在编写Web应用时，由于其自主访问控制性质，程序员一般会对用户输入的信息进行一定程度上的过滤操作，过滤掉一些危险字符，如or、单引号、注释符等。但是也会存在一些经验不足的程序员忽视这个问题，从而导致过滤规则不到位，最后就导致SQL注入漏洞的出现，以至于被攻击者利用。<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_26139045/article/details/103552569">原文链接</a><br>还讲到了工具，我就去搜了一下<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/367997403">SQLMap的安装及使用</a>，还有<a target="_blank" rel="noopener" href="https://www.freebuf.com/sectool/164608.html">另一个使用教程</a>，虽然我没搞明白，但是对这些概念都有所了解（长见识了）。只能看看题目下面的提示了</p>
+<p><img src="https://img-blog.csdnimg.cn/22b844b4745b4f3d94cbb88bba9ee1e3.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6Zu25a2R,size_20,color_FFFFFF,t_70"></p>
+<p>开始也是不明白这些是什么意思，查查就知道了比如<strong>用union select 1 来判断回显位置</strong>还有<strong>使用database()函数爆出当前数据库</strong>下来就是<strong>查数据库表数</strong>、<strong>查表名</strong>、<strong>查相应的列表数量</strong>、<strong>查列表名</strong>、<strong>查相应的表记录数量</strong>、最后<strong>查表的记录值</strong>，都是按照人家的教程做的。依次出现下面的结果</p>
+<p>![](<a target="_blank" rel="noopener" href="https://img-blog.csdnimg.cn/529fa174aa8749d7a830827b00b3e884.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6Zu25a2R,size_20,color_FFFFFF,t_70">https://img-blog.csdnimg.cn/529fa174aa8749d7a830827b00b3e884.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6Zu25a2R,size_20,color_FFFFFF,t_70</a> &#x3D;300x)![](<a target="_blank" rel="noopener" href="https://img-blog.csdnimg.cn/06e03453d789416dbc687c56cc184f8f.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6Zu25a2R,size_20,color_FFFFFF,t_70">https://img-blog.csdnimg.cn/06e03453d789416dbc687c56cc184f8f.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6Zu25a2R,size_20,color_FFFFFF,t_70</a> &#x3D;300x)![](<a target="_blank" rel="noopener" href="https://img-blog.csdnimg.cn/d2c09e0d4ab048f6b46d731faff9ceee.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6Zu25a2R,size_20,color_FFFFFF,t_70">https://img-blog.csdnimg.cn/d2c09e0d4ab048f6b46d731faff9ceee.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6Zu25a2R,size_20,color_FFFFFF,t_70</a> &#x3D;300x)![](<a target="_blank" rel="noopener" href="https://img-blog.csdnimg.cn/10a9034444c249b28fd06fe9e66dd8d4.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6Zu25a2R,size_20,color_FFFFFF,t_70">https://img-blog.csdnimg.cn/10a9034444c249b28fd06fe9e66dd8d4.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6Zu25a2R,size_20,color_FFFFFF,t_70</a> &#x3D;300x)![](<a target="_blank" rel="noopener" href="https://img-blog.csdnimg.cn/9df67705d69f43c1a6620fc2ad4cd9d5.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6Zu25a2R,size_20,color_FFFFFF,t_70">https://img-blog.csdnimg.cn/9df67705d69f43c1a6620fc2ad4cd9d5.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6Zu25a2R,size_20,color_FFFFFF,t_70</a> &#x3D;300x)![](<a target="_blank" rel="noopener" href="https://img-blog.csdnimg.cn/c8d3585a6297473183865a08988cc731.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6Zu25a2R,size_20,color_FFFFFF,t_70">https://img-blog.csdnimg.cn/c8d3585a6297473183865a08988cc731.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6Zu25a2R,size_20,color_FFFFFF,t_70</a> &#x3D;300x)![](<a target="_blank" rel="noopener" href="https://img-blog.csdnimg.cn/ec07e8121a3d4dd198ec02a785fd83e5.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6Zu25a2R,size_20,color_FFFFFF,t_70">https://img-blog.csdnimg.cn/ec07e8121a3d4dd198ec02a785fd83e5.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6Zu25a2R,size_20,color_FFFFFF,t_70</a> &#x3D;300x)![](<a target="_blank" rel="noopener" href="https://img-blog.csdnimg.cn/2601804ba6e34fd0b6bb65a99569da58.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6Zu25a2R,size_20,color_FFFFFF,t_70">https://img-blog.csdnimg.cn/2601804ba6e34fd0b6bb65a99569da58.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6Zu25a2R,size_20,color_FFFFFF,t_70</a> &#x3D;300x)</p>
+<p>最后也是成功得到flag</p>
+<p><font color="red">ctfshow{5ad09aaf-6c73-449d-bed3-3a80b77db6dc}</font>
+ </p>
+
                 
             </div>
             <hr/>
@@ -785,7 +778,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://sereinwe.github.io/2022/04/24/%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E6%BC%8F%E6%B4%9E/">http://sereinwe.github.io/2022/04/24/%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E6%BC%8F%E6%B4%9E/</a>
+                    <a href="http://sereinwe.github.io/2022/05/04/ctf-show%E7%9A%84WP/">http://sereinwe.github.io/2022/05/04/ctf-show%E7%9A%84WP/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -823,8 +816,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/web/">
-                                    <span class="chip bg-color">web</span>
+                                <a href="/tags/ctf/">
+                                    <span class="chip bg-color">ctf</span>
                                 </a>
                             
                         </div>
@@ -998,9 +991,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2022/05/04/ctf-show%E7%9A%84WP/">
                     <div class="card-image">
@@ -1018,9 +1012,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-05-04
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-04
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1033,6 +1027,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1051,19 +1046,19 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/04/24/Java%EF%BC%88%E5%85%AD%EF%BC%89%E6%96%B9%E6%B3%95%E5%9F%BA%E7%A1%80/">
+                <a href="/2022/04/24/%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E6%BC%8F%E6%B4%9E/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Java（六）方法基础">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="文件包含漏洞">
                         
-                        <span class="card-title">Java（六）方法基础</span>
+                        <span class="card-title">文件包含漏洞</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            好好学习，天天向上。
+                            关于文件包含漏洞的知识点总结。
                         
                     </div>
                     <div class="publish-info">
@@ -1074,8 +1069,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Java/" class="post-category">
-                                    Java
+                            <a href="/categories/web/" class="post-category">
+                                    web
                                 </a>
                             
                             
@@ -1085,8 +1080,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Java/">
-                        <span class="chip bg-color">Java</span>
+                    <a href="/tags/web/">
+                        <span class="chip bg-color">web</span>
                     </a>
                     
                 </div>
