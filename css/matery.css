@@ -35,6 +35,10 @@
 
 body {
     background-color: #eaeaea;
+
+    background: url('/medias/featureimages/17.jpg')；
+    background-attachment: fixed;
+
     margin: 0;
     color: #34495e;
     overflow-x: hidden;
