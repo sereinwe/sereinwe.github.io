@@ -4,8 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="ctf.show的WP, HTML,CSS,java,web">
-    <meta name="description" content="以前show 的题目">
+    <meta name="keywords" content="Java（八）语言进阶, HTML,CSS,java,web">
+    <meta name="description" content="初识Java（面向对象）面向对象与面向过程的区别
+面向过程：主要关注具体过程，因果关系
+
+ – 优点：对于业务逻辑比较简单的程序，可以得到快速开发，前期投入成本比较低 – 缺点：由于面向过程的使用让程序间的元素“耦合度”过高，导致程序维护不">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -28,7 +31,7 @@
     </style>
 
 
-    <title>ctf.show的WP | sereinwe</title>
+    <title>Java（八）语言进阶 | sereinwe</title>
     <link rel="icon" type="image/png" href="/medias/ps/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -523,12 +526,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">ctf.show的WP</h1>
+                    <h1 class="description center-align post-title">Java（八）语言进阶</h1>
                 </div>
             </div>
         </div>
@@ -644,8 +647,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/ctf/">
-                                <span class="chip bg-color">ctf</span>
+                            <a href="/tags/Java/">
+                                <span class="chip bg-color">Java</span>
                             </a>
                         
                     </div>
@@ -669,28 +672,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-05-04
+                    2022-05-14
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-05-04
+                    2022-05-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    847
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    3 分
                 </div>
                 
 
@@ -710,48 +713,129 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="CRYPTO"><a href="#CRYPTO" class="headerlink" title="CRYPTO"></a>CRYPTO</h2><h3 id="密码学签到"><a href="#密码学签到" class="headerlink" title="密码学签到"></a><font color=#0099ff>密码学签到</font></h3><p>看到题目的密文，开始居然以为是栅栏或者凯撒，后来在尝试中我发下不论是输入多少首位都是括号，<br><img src="https://img-blog.csdnimg.cn/400ec181e9604ecd977b758593dba68a.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6Zu25a2R,size_20,color_FFFFFF,t_70,g_se,x_16"></p>
-<p>然后就看着密文发愁，突然发现最后几个galf反过来不就是flag，这不就是把它们倒过来就行了吗，于是就对了。</p>
-<p><font color="red">flag{ctf.show}</font></p>
-<h3 id="crypto4"><a href="#crypto4" class="headerlink" title="crypto4"></a><font color=#0099ff>crypto4</font></h3><p>这个提就是RSA求解明文,要用到工具RSA Tool <a target="_blank" rel="noopener" href="http://www.pc6.com//softview/SoftView_100193.html">点击下载</a>还有他的使用方法<a target="_blank" rel="noopener" href="https://blog.csdn.net/MikeCoke/article/details/105920084">RSA求解明文</a></p>
-<p>像这样<br><img src="https://img-blog.csdnimg.cn/6b29d55c0ca4412fbe3dfd00f42fe9d6.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6Zu25a2R,size_20,color_FFFFFF,t_70,g_se,x_16"></p>
-<p>输入pqe（注意e是按照十六进制输入的，所以是11）按Calc. D 就可以得到结果<strong>53616899001</strong>，再加上格式就是结果了</p>
-<p><font color="red">flag{53616899001}</font></p>
-<h3 id="crypto5"><a href="#crypto5" class="headerlink" title="crypto5"></a><font color=#0099ff>crypto5</font></h3><p>这个体可以接着上面的题做，就是用Python执行一段代码就可以了</p>
-<pre class="line-numbers language-python"><code class="language-python">n <span class="token operator">=</span> p<span class="token operator">*</span>q
-m <span class="token operator">=</span> pow<span class="token punctuation">(</span>c<span class="token punctuation">,</span>d<span class="token punctuation">,</span>n<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>m<span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>这里的poe(c,d,n)其实就是进行c的d次幂在除以n的余数的运算。最终也是可以得到结果的</p>
-<p><img src="https://img-blog.csdnimg.cn/abfe04b9958d4df48be295f2fedf4e81.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6Zu25a2R,size_20,color_FFFFFF,t_70,g_se,x_16"></p>
-<p>加上格式，提交正确</p>
-<p><font color="red">flag{904332399012}</font></p>
-<h2 id="MISC"><a href="#MISC" class="headerlink" title="MISC"></a>MISC</h2><h3 id="杂项签到"><a href="#杂项签到" class="headerlink" title="杂项签到"></a><font color=#0099ff>杂项签到</font></h3><p>打开压缩包发现一个文件，然后 忘记密码了 这个文件里有一个文档需要我们输入密码，题目也没有提示密码的信息，这样的话密码就没法猜测，所以这个题估计就是伪加密了，用010打开压缩包，将50 4B搜索出来，方便查看</p>
-<p><img src="https://img-blog.csdnimg.cn/c3760cec4e3e4da8bd5145cecc37b613.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6Zu25a2R,size_20,color_FFFFFF,t_70,g_se,x_16"></p>
-<p>仔细看，明显此处的09就是伪加密，将09改为00，保存后再次打开文件，发现不需要密码了，直接得到flag</p>
-<p><font color="red" >flag{79ddfa61bda03defa7bfd8d702a656e4}</font></p>
-<h3 id="misc2"><a href="#misc2" class="headerlink" title="misc2"></a><font color=#0099ff>misc2</font></h3><p>看题目描述，提到了软盘，我也不知道这是啥，所以只能上网搜，<a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_50519965/article/details/116175873">虚拟机安装教程</a>，<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43743762/article/details/99456478">VMware创建软盘映像</a>，<a target="_blank" rel="noopener" href="https://blog.csdn.net/xiaoxinyu316/article/details/26682475">软盘及映像文件的打开</a></p>
-<p>搜到的知识点总结一下就是要我们在虚拟机中添加一个软盘镜像，再打开虚拟机就可以看到结果了</p>
-<p><img src="https://img-blog.csdnimg.cn/f5d95031829e4a7a971d859c50c60321.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6Zu25a2R,size_20,color_FFFFFF,t_70,g_se,x_16"></p>
-<p><font color="red">flag{ctfshow}</font></p>
-<h2 id="WEB"><a href="#WEB" class="headerlink" title="WEB"></a>WEB</h2><h3 id="web签到题"><a href="#web签到题" class="headerlink" title="web签到题"></a><font color=#0099ff>web签到题</font></h3><p>获取题目链节后进入查看，居然</p>
-<p><img src="https://img-blog.csdnimg.cn/17daa0813a14403f96f51c39e8ac33e0.png"></p>
-<p>flag在哪？我也想知道，查看一下网页源代码吧，</p>
-<p><img src="https://img-blog.csdnimg.cn/805c33b494be47ad93b78493c50c187a.png"></p>
-<p>这里也是看到一个东西，不知道是啥，像是一个密文，分析一下，没有花括号{}那就不能是凯撒和栅栏这样的移位加密了，再看看密文组成，有大小写字母还有数字，极有可能是base64（事实证明我是对的）</p>
-<p><img src="https://img-blog.csdnimg.cn/7418cbfa14324aea9c4f5899cad0b763.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6Zu25a2R,size_20,color_FFFFFF,t_70,g_se,x_16"></p>
-<p>最终也是成功得到flag<font color="red">ctfshow{2f26a95e-87c0-457e-8c25-2c52547c369a}</font></p>
-<h3 id="web2"><a href="#web2" class="headerlink" title=" web2"></a><font color=#0099ff> web2</font></h3><p>打开题目链接，就看到一个两个输入框，没啥思路，看看题目描述<font color="blue">最简单的SQL注入 </font> ，以前也没听过什么SQL，赶紧上网搜搜，于是就有这些</p>
-<p>谈到SQL注入，那么自然和数据库有很大的关系。先说数据库，数据库大致可以分为Access数据库、MySQL数据库、SQLServer数据库、Oracle数据库等。Access数据库是比较早期的应用于Web应用的数据库。但是近几年Access数据库的使用再逐渐地减少，这是因为它不能适应大量用户的访问，而且安全性没有其他的数据库高。而现在使用的比较多的是MySQL数据库。SQLServer和Oracle在大型公司比较适用。<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_26139045/article/details/103552569">原文链接</a></p>
-<p>这些</p>
-<p>SQL语言时一门解释型语言，由一个运行时组件解释代码并且执行其中的指令。Python也是一种解释型语言。</p>
-<p>基于解释型语言的执行方式，会产生一系列叫代码注入的漏洞，SQL就是其中的一种。攻击者只需要提交专门设计的SQL语句，向Web应用程序攻击。结果，解释器就会将这其中一部分的输入解释为程序指令来执行了，就和一开始程序员写好的代码一样。因此，SQL注入漏洞就随之形成了。<br>除了语言本身的原因，SQL注入产生的另一个原因就是没有对输入或提交数据进行过滤。在编写Web应用时，由于其自主访问控制性质，程序员一般会对用户输入的信息进行一定程度上的过滤操作，过滤掉一些危险字符，如or、单引号、注释符等。但是也会存在一些经验不足的程序员忽视这个问题，从而导致过滤规则不到位，最后就导致SQL注入漏洞的出现，以至于被攻击者利用。<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_26139045/article/details/103552569">原文链接</a><br>还讲到了工具，我就去搜了一下<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/367997403">SQLMap的安装及使用</a>，还有<a target="_blank" rel="noopener" href="https://www.freebuf.com/sectool/164608.html">另一个使用教程</a>，虽然我没搞明白，但是对这些概念都有所了解（长见识了）。只能看看题目下面的提示了</p>
-<p><img src="https://img-blog.csdnimg.cn/22b844b4745b4f3d94cbb88bba9ee1e3.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6Zu25a2R,size_20,color_FFFFFF,t_70"></p>
-<p>开始也是不明白这些是什么意思，查查就知道了比如<strong>用union select 1 来判断回显位置</strong>还有<strong>使用database()函数爆出当前数据库</strong>下来就是<strong>查数据库表数</strong>、<strong>查表名</strong>、<strong>查相应的列表数量</strong>、<strong>查列表名</strong>、<strong>查相应的表记录数量</strong>、最后<strong>查表的记录值</strong>，都是按照人家的教程做的。依次出现下面的结果</p>
-<p>![](<a target="_blank" rel="noopener" href="https://img-blog.csdnimg.cn/529fa174aa8749d7a830827b00b3e884.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6Zu25a2R,size_20,color_FFFFFF,t_70">https://img-blog.csdnimg.cn/529fa174aa8749d7a830827b00b3e884.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6Zu25a2R,size_20,color_FFFFFF,t_70</a> &#x3D;300x)![](<a target="_blank" rel="noopener" href="https://img-blog.csdnimg.cn/06e03453d789416dbc687c56cc184f8f.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6Zu25a2R,size_20,color_FFFFFF,t_70">https://img-blog.csdnimg.cn/06e03453d789416dbc687c56cc184f8f.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6Zu25a2R,size_20,color_FFFFFF,t_70</a> &#x3D;300x)![](<a target="_blank" rel="noopener" href="https://img-blog.csdnimg.cn/d2c09e0d4ab048f6b46d731faff9ceee.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6Zu25a2R,size_20,color_FFFFFF,t_70">https://img-blog.csdnimg.cn/d2c09e0d4ab048f6b46d731faff9ceee.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6Zu25a2R,size_20,color_FFFFFF,t_70</a> &#x3D;300x)![](<a target="_blank" rel="noopener" href="https://img-blog.csdnimg.cn/10a9034444c249b28fd06fe9e66dd8d4.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6Zu25a2R,size_20,color_FFFFFF,t_70">https://img-blog.csdnimg.cn/10a9034444c249b28fd06fe9e66dd8d4.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6Zu25a2R,size_20,color_FFFFFF,t_70</a> &#x3D;300x)![](<a target="_blank" rel="noopener" href="https://img-blog.csdnimg.cn/9df67705d69f43c1a6620fc2ad4cd9d5.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6Zu25a2R,size_20,color_FFFFFF,t_70">https://img-blog.csdnimg.cn/9df67705d69f43c1a6620fc2ad4cd9d5.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6Zu25a2R,size_20,color_FFFFFF,t_70</a> &#x3D;300x)![](<a target="_blank" rel="noopener" href="https://img-blog.csdnimg.cn/c8d3585a6297473183865a08988cc731.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6Zu25a2R,size_20,color_FFFFFF,t_70">https://img-blog.csdnimg.cn/c8d3585a6297473183865a08988cc731.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6Zu25a2R,size_20,color_FFFFFF,t_70</a> &#x3D;300x)![](<a target="_blank" rel="noopener" href="https://img-blog.csdnimg.cn/ec07e8121a3d4dd198ec02a785fd83e5.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6Zu25a2R,size_20,color_FFFFFF,t_70">https://img-blog.csdnimg.cn/ec07e8121a3d4dd198ec02a785fd83e5.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6Zu25a2R,size_20,color_FFFFFF,t_70</a> &#x3D;300x)![](<a target="_blank" rel="noopener" href="https://img-blog.csdnimg.cn/2601804ba6e34fd0b6bb65a99569da58.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6Zu25a2R,size_20,color_FFFFFF,t_70">https://img-blog.csdnimg.cn/2601804ba6e34fd0b6bb65a99569da58.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6Zu25a2R,size_20,color_FFFFFF,t_70</a> &#x3D;300x)</p>
-<p>最后也是成功得到flag</p>
-<p><font color="red">ctfshow{5ad09aaf-6c73-449d-bed3-3a80b77db6dc}</font>
- </p>
+                <h3 id="初识Java（面向对象）"><a href="#初识Java（面向对象）" class="headerlink" title="初识Java（面向对象）"></a>初识Java（面向对象）</h3><h5 id="面向对象与面向过程的区别"><a href="#面向对象与面向过程的区别" class="headerlink" title="面向对象与面向过程的区别"></a>面向对象与面向过程的区别</h5><ul>
+<li>面向过程：主要关注具体过程，因果关系</li>
+</ul>
+<p> – 优点：对于业务逻辑比较简单的程序，可以得到快速开发，前期投入成本比较低<br> – 缺点：由于面向过程的使用让程序间的元素“耦合度”过高，导致程序维护不便，且可拓展性差</p>
+<ul>
+<li>面向对象：主要关心对象【独立体】能完成哪些功能</li>
+</ul>
+<p> – 优点：耦合度低，可拓展性强，组件复用性高<br> – 缺点：前期投入成本高，概念抽象，对于对象【独立体】构建不易</p>
+<p>面向对象的三大特征</p>
+<blockquote>
+<p> 封装<br> 继承<br> 多态</p>
+</blockquote>
+<p>采用面向对象编程的过程：</p>
+<blockquote>
+<p>面向对象的分析：OOA<br>面向对象的设计：OOD<br>面向对象的编程：OOP</p>
+</blockquote>
+<h3 id="类与对象"><a href="#类与对象" class="headerlink" title="类与对象"></a>类与对象</h3><ul>
+<li>类的理解：</li>
+</ul>
+<blockquote>
+<p>类是一概念，是由人思考抽象的结果<br>类代表了一类事物，人对现实中个体的共同特征进行总结归纳成一个概念，称之为【类】<br>类可以看成是创建 Java 对象的模板</p>
+</blockquote>
+<ul>
+<li>对象的理解：</li>
+</ul>
+<blockquote>
+<p>现实中实际存在的个体</p>
+</blockquote>
+<h5 id="类的定义"><a href="#类的定义" class="headerlink" title="类的定义"></a>类的定义</h5><p>语法结构：</p>
+<pre class="line-numbers language-java"><code class="language-java">    <span class="token punctuation">[</span>修饰符列表<span class="token punctuation">]</span> <span class="token keyword">class</span> 类名<span class="token punctuation">{</span>
+        属性<span class="token punctuation">;</span>
+        方法<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>重点：</p>
+<ul>
+<li>属性通常是采用一个变量的形式来完成定义</li>
+<li>行为则是通过方法来描述</li>
+</ul>
+<p>例子（定义一个学生类）：（首先，分析一下 学生类）</p>
+<pre class="line-numbers language-txt"><code class="language-txt">学生有什么属性
+学号
+姓名
+年龄
+. . .
+学生有什么行为
+学习
+吃饭
+睡觉
+. . .
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 定义一个学生类</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Student</span>
+<span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// Student 属于类 是引用数据类型，类似 String</span>
+
+    <span class="token comment" spellcheck="true">// 类体 = 属性 + 方法</span>
+
+    <span class="token comment" spellcheck="true">/*
+        学号信息不能直接通过“类”访问，所以这种成员变量又被称作：实例变量
+        对象又被称作实例，实例变量就是对象变量【对象级别的变量
+        不创建对象，id 变量的内存空间是不存在的
+    */</span>
+
+    <span class="token keyword">int</span> id<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 学号</span>
+
+    String name<span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">// 姓名</span>
+
+    <span class="token keyword">int</span> age<span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">// 年龄</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="对象的创建和使用"><a href="#对象的创建和使用" class="headerlink" title="对象的创建和使用"></a>对象的创建和使用</h5><p>在Java代码中</p>
+<blockquote>
+<p>什么是对象？</p>
+</blockquote>
+<ul>
+<li>new 运算符在堆内存中开辟的内存空间被称为对象</li>
+</ul>
+<blockquote>
+<p>什么是引用？</p>
+</blockquote>
+<ul>
+<li>引用是一个变量，只不过这个变量中保存了另一个Java对象的内存地址</li>
+</ul>
+<blockquote>
+<p>Java中引用与C语言中的指针区别</p>
+</blockquote>
+<ul>
+<li>Java中引用程序员不能直接操作堆内存</li>
+<li>C中能使用指针对内存自由操作</li>
+</ul>
+<p>引用的操作：</p>
+<ul>
+<li>读取数据：引用.变量名</li>
+<li>修改数据：引用.变量名 &#x3D; 值</li>
+</ul>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Test01</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+        <span class="token comment" spellcheck="true">// new 是一个Java语言中的一个运算符</span>
+        <span class="token comment" spellcheck="true">// new 运算符的作用创建对象，在JVM的堆内存中开辟新的内存空间</span>
+        <span class="token comment" spellcheck="true">// 栈内存（局部变量）：方法代码片段执行的时候，会给该方法分配内存空间，在栈内存中压栈</span>
+        <span class="token comment" spellcheck="true">// 堆内存：new 创建的对象在堆中存储</span>
+
+        Student jom <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        jom<span class="token punctuation">.</span>id <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        jom<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">"Jom"</span><span class="token punctuation">;</span>
+        jom<span class="token punctuation">.</span>age <span class="token operator">=</span> <span class="token number">18</span><span class="token punctuation">;</span>
+
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>jom<span class="token punctuation">.</span>name <span class="token operator">+</span> <span class="token string">"的学号："</span> <span class="token operator">+</span> jom<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>jom<span class="token punctuation">.</span>name <span class="token operator">+</span> <span class="token string">"的年龄："</span> <span class="token operator">+</span> jom<span class="token punctuation">.</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">/*
+    局部变量在栈内存中存储
+    成员变量中的实例变量在堆内存的java对象内部存储
+    实例变量是一个对象一份，个算个的
+*/</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>注意：上面两个文件在同一个目录</p>
 
                 
             </div>
@@ -778,7 +862,7 @@ m <span class="token operator">=</span> pow<span class="token punctuation">(</sp
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://sereinwe.github.io/2022/05/04/ctf-show%E7%9A%84WP/">http://sereinwe.github.io/2022/05/04/ctf-show%E7%9A%84WP/</a>
+                    <a href="http://sereinwe.github.io/2022/05/14/Java%EF%BC%88%E5%85%AB%EF%BC%89%E8%AF%AD%E8%A8%80%E8%BF%9B%E9%98%B6/">http://sereinwe.github.io/2022/05/14/Java%EF%BC%88%E5%85%AB%EF%BC%89%E8%AF%AD%E8%A8%80%E8%BF%9B%E9%98%B6/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -816,8 +900,8 @@ m <span class="token operator">=</span> pow<span class="token punctuation">(</sp
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/ctf/">
-                                    <span class="chip bg-color">ctf</span>
+                                <a href="/tags/Java/">
+                                    <span class="chip bg-color">Java</span>
                                 </a>
                             
                         </div>
@@ -991,17 +1075,18 @@ m <span class="token operator">=</span> pow<span class="token punctuation">(</sp
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/05/07/Java%EF%BC%88%E4%B8%83%EF%BC%89%E6%96%B9%E6%B3%95%E9%87%8D%E8%BD%BD%E5%92%8C%E9%80%92%E5%BD%92/">
+                <a href="/2022/05/14/Java%EF%BC%88%E5%85%AB%EF%BC%89%E8%AF%AD%E8%A8%80%E8%BF%9B%E9%98%B6/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Java（七）方法重载和递归调用">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Java（八）语言进阶">
                         
-                        <span class="card-title">Java（七）方法重载和递归调用</span>
+                        <span class="card-title">Java（八）语言进阶</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1011,9 +1096,9 @@ m <span class="token operator">=</span> pow<span class="token punctuation">(</sp
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-05-07
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-14
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1026,6 +1111,7 @@ m <span class="token operator">=</span> pow<span class="token punctuation">(</sp
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1044,31 +1130,31 @@ m <span class="token operator">=</span> pow<span class="token punctuation">(</sp
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/04/24/%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E6%BC%8F%E6%B4%9E/">
+                <a href="/2022/05/07/Java%EF%BC%88%E4%B8%83%EF%BC%89%E6%96%B9%E6%B3%95%E9%87%8D%E8%BD%BD%E5%92%8C%E9%80%92%E5%BD%92/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="文件包含漏洞">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Java（七）方法重载和递归调用">
                         
-                        <span class="card-title">文件包含漏洞</span>
+                        <span class="card-title">Java（七）方法重载和递归调用</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            关于文件包含漏洞的知识点总结。
+                            
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-07
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/web/" class="post-category">
-                                    web
+                            <a href="/categories/%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    笔记
                                 </a>
                             
                             
@@ -1078,8 +1164,8 @@ m <span class="token operator">=</span> pow<span class="token punctuation">(</sp
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/web/">
-                        <span class="chip bg-color">web</span>
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
                     </a>
                     
                 </div>
